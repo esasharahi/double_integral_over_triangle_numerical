@@ -76,8 +76,8 @@ double integrator (double *u, double *v, double f(double x, double y), int n)
 	}
 	sum *= J / 8;
 	sum = fabs(sum);
-    free(alpha);
-    free(beta);
+	free(alpha);
+	free(beta);
 	return sum;
 }
 
