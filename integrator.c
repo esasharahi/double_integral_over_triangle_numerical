@@ -63,8 +63,8 @@ double integrator (double *u, double *v, double f(double x, double y), int n)
 	beta = malloc(n * sizeof(double*));
 	for (int i = 0; i < n; i++)
 	{
-		alpha[i] = (double*) malloc(n * sizeof(double*));
-		beta[i] = (double*) malloc(n * sizeof(double*));
+		alpha[i] = malloc(n * sizeof(double*));
+		beta[i] = malloc(n * sizeof(double*));
 		for (int j = 0; j < n; j++)
 		{
 			alpha[i][j] = ((u[1] - u[0]) * (1 - a[i]) / 2) + ((u[2] - u[0]) * (1 + a[i]) * (1 - a[j]) / 4) + u[0]; 
