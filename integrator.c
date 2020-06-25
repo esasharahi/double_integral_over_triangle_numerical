@@ -33,10 +33,10 @@ double a[] =
 static double **w;
 void w_fill (int n)
 {
-	w = (double**) malloc(n * sizeof(double*));
+	w = malloc(n * sizeof(double*));
 	for (int i = 0; i < n; i++)
 	{
-		w[i] = (double*) malloc(n*sizeof(double*));
+		w[i] = malloc(n*sizeof(double*));
 		for (int j = 0; j < n; j++)
 		{
 			w[i][j] = (1 + a[i]) * A[i] * A[j];
@@ -59,8 +59,8 @@ double integrator (double *u, double *v, double f(double x, double y), int n)
 	double J = (u[1] - u[0]) * (v[2] - v[0]) - (v[1] - v[0]) * (u[2] - u[0]);
 	double **alpha, **beta;
 	double sum = 0.0;
-	alpha = (double**) malloc(n * sizeof(double*));
-	beta = (double**) malloc(n * sizeof(double*));
+	alpha = malloc(n * sizeof(double*));
+	beta = malloc(n * sizeof(double*));
 	for (int i = 0; i < n; i++)
 	{
 		alpha[i] = (double*) malloc(n * sizeof(double*));
@@ -96,5 +96,5 @@ int main ()
 	double y[3] = {0, 1, 0};
 	w_fill(n);
 	printf("%f\n", integrator(x, y, *f, n));
-    free_w(n);
+	free_w(n);
 }
