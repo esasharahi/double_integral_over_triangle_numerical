@@ -71,8 +71,8 @@ double integrator (double *u, double *v, double f(double x, double y), int n)
 			beta[i][j] = ((v[1] - v[0]) * (1 - a[i]) / 2) + ((v[2] - v[0]) * (1 + a[i]) * (1 - a[j]) / 4) + v[0];
 			sum += w[i][j] * f(alpha[i][j], beta[i][j]);
 		}
-        free(alpha[i]);
-        free(beta[i]);
+        	free(alpha[i]);
+        	free(beta[i]);
 	}
 	sum *= J / 8;
 	sum = fabs(sum);
